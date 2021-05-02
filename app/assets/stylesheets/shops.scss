@@ -1,3 +1,67 @@
-// Place all the styles related to the Shops controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.card{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+    .card_content{
+      border-radius: 10px;
+      width: 300px;
+      height: 450px;
+      margin: 5px;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      align-self: flex-start;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      transition: .4s;
+      padding: 5px;
+    }
+  .card_content:hover{
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+    transform: translate(0px, -6px);
+    transition: .6s;
+  }
+    .card_text{
+      text-align: center;
+      font-family:Nunito Sans;
+    }
+  h6{
+    font-size: 15px;
+  }
+  .card_wrap_images{
+    height: 350px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+  }
+    .card_wrap_images>img{
+      width: 50%;
+    }
+  .myButton {
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    background-color:#ffffff;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    cursor:pointer;
+    color:#666666;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;
+  }
+  .myButton:hover {
+    background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+    background-color:#f6f6f6;
+  }
+  .myButton:active {
+    position:relative;
+    top:1px;
+  }
+
+}
