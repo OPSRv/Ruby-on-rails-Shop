@@ -1,68 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Shop</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Shop</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+</head>
 
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-  </head>
-
-  <body>
-  <header class="header">
-    <nav class="navbar">
-      <a href="#" class="nav-logo">Shop.</a>
-      <ul class="nav-menu">
-        <li class="nav-item">
-          <a href="#" class="nav-link">Services</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">Blog</a>
-        </li>
-    <% if user_signed_in? %>
-        <li class="nav-item">
-              <span class="nav-link">Hello, <strong><%= current_user.first_name %></strong> </span>
-        </li>
-    <li class="nav-item">
-              <%= link_to destroy_user_session_path, :method => :delete do %>
-              <i class="fa fa-sign-in icon" aria-hidden="true"></i>
-          <% end %> 
+<body>
+<header class="header">
+  <nav class="navbar">
+    <a href="#" class="nav-logo">Shop.</a>
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="#" class="nav-link">Services</a>
       </li>
-
-<% else %>
-
-
-<li class="nav-item">
-    <%= link_to 'Войти', new_user_session_path, :class => "nav-link" %>
-    </li>
-
-    <li class="nav-item">
-    
-    <%= link_to 'Зарегистрироваться', new_user_registration_path, :class => "nav-link" %>
-
+      <li class="nav-item">
+        <a href="#" class="nav-link">Blog</a>
+      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <span class="nav-link">Hello, <strong><%= current_user.first_name %></strong> </span>
         </li>
-  <% end %> 
-
-
-
-
-
-
-      </ul>
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-    </nav>
-  </header>
-    <%= yield %>
-  <%= javascript_pack_tag 'main', 'data-turbolinks-track': 'reload' %>
-  </body>
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path, :method => :delete do %>
+            <i class="fa fa-sign-in icon" aria-hidden="true"></i>
+          <% end %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Войти', new_user_session_path, :class => "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Зарегистрироваться', new_user_registration_path, :class => "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+    <div class="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </nav>
+</header>
+<%= yield %>
+<%= javascript_pack_tag 'main', 'data-turbolinks-track': 'reload' %>
+</body>
 </html>

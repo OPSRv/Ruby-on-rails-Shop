@@ -1,0 +1,48 @@
+<div class="card_show_items">
+  <div class="card_content">
+    <div class="card_wrap_images">
+      <%= image_tag @shop.image %>
+    </div>
+    <div class="card_text">
+      <h3><%= @shop.title %></h3>
+      <h6>$<%= @shop.price %></h6>
+      <p><%= @shop.description %></p>
+      <%#= link_to "Buy Now", shop_path(shop), :class => "myButton" %>
+
+      <% if user_signed_in? %>
+        <div class="product_count">
+          <p>Quantity: </p>
+          <input type="text" name="qty" id="sst" minlength="1" maxlength="12" value="1" title="quantity" class="input-text qty">
+          <div class="quantity_btn">
+            <button onclick="
+            const result = document.getElementById('sst');
+              const sst = result.value;
+              if( !isNaN( sst ))
+                result.value++;
+              return false;
+            " class="increase items-count" type="button">
+              <i class="fa fa-angle-up icon_btn" aria-hidden="true"></i>
+            </button>
+            <button onclick="const result = document.getElementById('sst'); const sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;" class="reduced items-count" type="button">
+              <i class="fa fa-angle-down icon_btn" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+        <a href="/shops/<%= @shop.id %>">
+          <button class="myButton">Buy Now</button>
+        </a>
+
+      <% else %>
+        <p class="log_purchase">You must log in to purchase</p>
+          <%= link_to 'Войти', new_user_session_path, :class => "sing_up_in" %>
+        <p class="symbol">&</p>
+          <%= link_to 'Зарегистрироваться', new_user_registration_path, :class => "sing_up_in" %>
+      <% end %>
+
+
+
+
+
+    </div>
+  </div>
+</div>

@@ -1,13 +1,17 @@
 <div class="card">
-<% @shop.each do |item| %>
+<% @shop.each do |shop| %>
   <div class="card_content">
     <div class="card_wrap_images">
-      <%= image_tag item.image %>
+      <%= image_tag shop.image %>
     </div>
     <div class="card_text">
-      <h3><%= item.title %></h3>
-      <h6>$<%= item.price %></h6>
-      <button class="myButton">Buy Now</button>
+      <h3><%= shop.title %></h3>
+      <h6>$<%= shop.price %></h6>
+
+      <a href="/shops/<%= shop.id %>">
+        <button class="myButton">Buy Now</button>
+      </a>
+
     </div>
   </div> 
 <% end %>
